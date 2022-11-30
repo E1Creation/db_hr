@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
@@ -60,4 +61,7 @@ public class Employee extends BaseEntity {
     @JoinColumn(name = "job")
     private Job job;
 
+    @OneToOne(mappedBy = "employee")
+    @PrimaryKeyJoinColumn
+    private User user;
 }
